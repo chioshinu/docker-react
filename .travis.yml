@@ -1,0 +1,9 @@
+sudo: required
+services:
+    - docker
+
+before_install:
+  - docker build -t chioshinu/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run chioshinu/docker-react npm run test -- --coverage
